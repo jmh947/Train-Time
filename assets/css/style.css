@@ -1,18 +1,50 @@
 .jumbotron {
-    background-image: url(/Users/jaclynhardy/Documents/Bootcamp/Projects/Train-Time/assets/images/imagecropped.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-    width: 100%;
-    height: 100%;
-    color: white;
+    background-color: transparent;
+    color: rgba(243, 186, 43, 0.712);
+    backface-visibility: visible;
+    border: solid rgba(243, 186, 43, 0.712);
+    margin-bottom: 15px;
+    text-emphasis: bold;
+    text-shadow: black;
 }
 
 
 body {
-    background-image: url(/Users/jaclynhardy/Documents/Bootcamp/Projects/Train-Time/assets/images/d1dd9dc9543d6eaa303a8709aa4e5333.jpg);
+    background-image: url(/Users/jaclynhardy/Documents/Bootcamp/Projects/Train-Time/assets/images/images-3.jpg);
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: cover;
 }
 
 #train-table th,td {
       display: inline-block;
       width: 16.575%;
     }
+
+.train-schedule {
+    background-color: transparent;
+    color: rgba(243, 186, 43, 0.712);
+    backface-visibility: visible;
+    border: solid rgba(243, 186, 43, 0.712);
+    text-emphasis: bold;
+    margin-bottom: 15px;
+}
+
+.card-header {
+    text-align: center;
+    color: rgba(243, 186, 43, 0.712);
+    text-emphasis: bold;
+    text-size-adjust: 50%;
+}
+
+.row {
+    background-color: transparent;
+    color: rgba(243, 186, 43, 0.712);
+    border: solid rgba(243, 186, 43, 0.712);
+    text-emphasis: bold;
+    margin-bottom: 15px;
+}
+
+

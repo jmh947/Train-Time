@@ -35,8 +35,8 @@ $("#add-train-btn").on("click", function(event) {
   // Grabs user input
   var trainName = $("#train-name-input").val().trim();
   var trainDestination = $("#destination-input").val().trim();
-  var trainFrequency = moment($("#frequency-input").val().trim(), "HH:mm").format("X");
   var trainArrival = $("#arrival-input").val().trim();
+  var trainFrequency = $("#frequency-input").val().trim();
 
   // Creates local "temporary" object for holding employee data
   var newTrain = {
@@ -60,11 +60,11 @@ $("#add-train-btn").on("click", function(event) {
   // Clears all of the text-boxes
   $("#train-name-input").val("");
   $("#destination-input").val("");
-  $("#frequency-input").val("");
   $("#arrival-input").val("");
+  $("#frequency-input").val("");
 });
 
-// 3. Create Firebase event for adding employee to the database and a row in the html when a user adds an entry
+// 3. Create Firebase event for adding train to the database and a row in the html when a user adds an entry
 database.ref().on("child_added", function(childSnapshot) {
   console.log(childSnapshot.val());
 
@@ -80,29 +80,55 @@ database.ref().on("child_added", function(childSnapshot) {
   console.log(trainFrequency);
   console.log(trainArrival);
 
-  // Prettify the employee start
-  var trainFrequencyPretty = moment.unix(trainFrequency).format("HH:mm");
+  // 08:00    09:06   66 / freq 30  8  83:30 9:00   6   30-6 = 24  9:06 + 24 = 9:30
+var currentTime = moment()
 
-  // Calculate the train time using hardcore math////////////////*
-  // To calculate the train frequency
-  var trainFrequency = moment().diff(moment(trainFrequency, "X"), "minutes");
-  console.log(trainFrequency);
+var firstTrain = moment(trainArrival, "HH:mm")
 
-  // Calculate the total billed rate///////////////*
-  var empBilled = empMonths * trainArrival;
-  console.log(empBilled);
+var difMinutes= currentTime.diff(firstTrain, "minutes")
+
+console.log("difmin:", difMinutes)
+
+var minRemain = difMinutes % trainFrequency 
+
+console.log("minR", minRemain)
+
+var minutesAway = trainFrequency - minRemain
+var nextTrain = currentTime.add(minutesAway, "minutes").format("HH:mm")
+
+  /// first train in the morning   /  30 freq
+
+  // current -  first train (minutes )   // if you divede the minute / freq  - remain 
+  // freq - remain === will be minutes away 
+  // next trai  current time + minutes away
+
+  // // Prettify the train start
+  // var trainFrequencyPretty = moment.unix(trainArrival).format("HH:mm");
+
+  // // Calculate the train time using hardcore math////////////////*
+  // // To calculate the train frequency
+  // var trainArrival = moment().diff(moment(trainArrival, "X"), "minutes");
+  // console.log(trainArrival);
+
+  // // Calculate the total time///////////////*
+  // var trainMins = trainArrival + trainFrequency;
+  // console.log(trainMins);
 
   // Create the new row
   var newRow = $("<tr>").append(
     $("<td>").text(trainName),
     $("<td>").text(trainDestination),
-    $("<td>").text(trainFrequencyPretty),
-    //$("<td>").text(empMonths),
-    $("<td>").text(trainArrival),
-    //$("<td>").text(empBilled)
+    $("<td>").text(trainFrequency),
+    $("<td>").text(nextTrain),
+    $("<td>").text(minutesAway)
   );
 
   // Append the new row to the table
   $("#train-table > tbody").append(newRow);
 });
 
+
+// Commented CSS
+//background-image: url(/Users/jaclynhardy/Documents/Bootcamp/Projects/Train-Time/assets/images/imagecropped.png);
+// background-size: cover;
+// background-repeat: no-repeat;
