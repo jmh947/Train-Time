@@ -47,4 +47,18 @@ body {
     margin-bottom: 15px;
 }
 
+form {
+    max-width: 100%;
+}
+
+.card-header {
+    text-align: center;
+    text-emphasis: bold;
+}
+
+.form-control {
+    max-width: 100%;
+}
+
+
 
