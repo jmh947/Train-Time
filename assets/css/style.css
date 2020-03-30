@@ -1,8 +1,8 @@
 .jumbotron {
     background-color: transparent;
-    color: rgba(243, 186, 43, 0.712);
+    color: rgb(236, 170, 3);
     backface-visibility: visible;
-    border: solid rgba(243, 186, 43, 0.712);
+    border: solid rgb(236, 170, 3);
     margin-bottom: 15px;
     text-emphasis: bold;
     text-shadow: black;
@@ -25,40 +25,32 @@ body {
 
 .train-schedule {
     background-color: transparent;
-    color: rgba(243, 186, 43, 0.712);
+    color: rgb(236, 170, 3);
     backface-visibility: visible;
-    border: solid rgba(243, 186, 43, 0.712);
+    border: solid rgb(236, 170, 3);
     text-emphasis: bold;
     margin-bottom: 15px;
 }
 
 .card-header {
     text-align: center;
-    color: rgba(243, 186, 43, 0.712);
+    color: rgb(236, 170, 3);
     text-emphasis: bold;
     text-size-adjust: 50%;
 }
 
 .row {
     background-color: transparent;
-    color: rgba(243, 186, 43, 0.712);
-    border: solid rgba(243, 186, 43, 0.712);
+    color: rgb(236, 170, 3);
+    border: solid rgb(236, 170, 3);
     text-emphasis: bold;
     margin-bottom: 15px;
 }
 
-form {
+.form {
     max-width: 100%;
 }
 
-.card-header {
-    text-align: center;
-    text-emphasis: bold;
-}
-
-.form-control {
-    max-width: 100%;
-}
 
 
 
